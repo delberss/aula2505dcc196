@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextPreco;
     private CheckBox checkBoxParaPresente;
     private CheckBox checkBoxExpresso;
+    private RadioGroup radioGroupPagamento;
 
 
     @Override
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         editTextPreco = findViewById(R.id.editTextPreco);
         checkBoxParaPresente = findViewById(R.id.checkBoxPresente);
         checkBoxExpresso = findViewById(R.id.checkBoxExpresso);
+        radioGroupPagamento = findViewById(R.id.radioGroupPagamento);
 
     }
     public void calcularPreco(View view){
@@ -41,6 +44,21 @@ public class MainActivity extends AppCompatActivity {
 
         if (checkBoxExpresso.isChecked()){
             precoFinal += 12.00;
+        }
+
+        switch (radioGroupPagamento.getCheckedRadioButtonId()){
+            case R.id.emDinheiro:
+                precoFinal -= 0.05*preco;
+                break;
+            case R.id.umaVezCartao:
+                precoFinal += 0.03*preco;
+                break;
+            case R.id.tresVezesCartao:
+                precoFinal += 0.06*preco;
+                break;
+            case R.id.cincoVezesCartao:
+                precoFinal += 0.09*preco;
+                break;
         }
 
         Locale locale = new Locale("pt", "BR");
