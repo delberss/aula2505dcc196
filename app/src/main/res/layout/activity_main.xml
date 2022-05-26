@@ -12,8 +12,10 @@
         android:layout_height="31dp"
         android:text="Preço"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextPreco"
-        tools:layout_editor_absoluteY="81dp" />
+        tools:layout_editor_absoluteY="79dp" />
 
     <EditText
         android:id="@+id/editTextPreco"
@@ -23,12 +25,12 @@
         android:ems="10"
         android:hint="Preço base do produto"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxPresente"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxPresente"
         app:layout_constraintTop_toBottomOf="@+id/textViewPreco" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBoxPresente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -37,22 +39,22 @@
         tools:layout_editor_absoluteX="28dp" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBoxExpresso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="8dp"
         android:text="Envio Expresso"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxPresente"
         app:layout_constraintTop_toBottomOf="@+id/editTextPreco" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox">
+        app:layout_constraintStart_toStartOf="@+id/checkBoxPresente"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxPresente">
 
         <RadioButton
             android:id="@+id/emDinheiro"
@@ -86,10 +88,10 @@
         android:layout_marginTop="60dp"
         android:onClick="calcularPreco"
         android:text="Calcular"
-        app:layout_constraintEnd_toEndOf="@+id/checkBox2"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxExpresso"
         app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/checkBox2"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintStart_toStartOf="@+id/checkBoxExpresso"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxExpresso" />
 
     <TextView
         android:id="@+id/precoFinal"
